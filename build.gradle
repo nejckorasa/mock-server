@@ -1,0 +1,52 @@
+description ="""
+Ktor server that responds with request data. 
+Handy if you want to test and verify the data you are putting in your request  
+"""
+
+buildscript {
+
+    repositories {
+        jcenter()
+    }
+    
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.github.jengelman.gradle.plugins:shadow:2.0.1"
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: "com.github.johnrengelman.shadow"
+apply plugin: 'application'
+
+group 'mock-server'
+version '0.0.1'
+
+mainClassName = "io.github.nejckorasa.mock.MockServerApplicationKt"
+
+sourceSets {
+    main.kotlin.srcDirs = main.java.srcDirs = ['src']
+    test.kotlin.srcDirs = test.java.srcDirs = ['test']
+    main.resources.srcDirs = ['resources']
+    test.resources.srcDirs = ['testresources']
+}
+
+repositories {
+    mavenLocal()
+    jcenter()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compile "io.ktor:ktor-server-netty:$ktor_version"
+    compile "ch.qos.logback:logback-classic:$logback_version"
+    compile "io.ktor:ktor-jackson:$ktor_version"
+    compile 'com.github.jengelman.gradle.plugins:shadow:5.0.0'
+    testCompile "io.ktor:ktor-server-tests:$ktor_version"
+}
+
+shadowJar {
+    baseName = 'mock-server'
+    classifier = null
+    version = null
+}
