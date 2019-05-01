@@ -82,7 +82,21 @@ docker run -it -p 8080:8080 --rm mock-server
 
 ## Response example
 
+Request
 
+```
+curl -X POST \
+  'http://localhost:8080/api/v1/random-path?paramOne=1¶mTwo=2' \
+  -H 'Authorization: Basic blableblu' \
+  -H 'Content-Type: application/json' \
+  -H 'cache-control: no-cache' \
+  -d '{
+    "name": "Nejc"
+    "where": "London"
+}'
+```
+
+gives response:
 ```json
 {
     "method": "POST",
