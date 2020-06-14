@@ -25,13 +25,13 @@ There is also an option to __only__ return the requests body.
 
 Have the url contain ```just-the-body``` anywhere in the URL (as path or query parameter) and the response will only contain the request's body.
 
-> For example POST to `localhost:8321/api/iv1/random-path/just-the-body`
+For example POST to `localhost:8321/api/iv1/random-path/just-the-body`
 
 #### Pretty JSON print
 
 Have the url contain ```just-the-json-body``` anywhere in the URL (as path or query parameter) and the response will only contain the request's JSON body, pretty printed:
 
-> For example POST to `localhost:8321/api/iv1/random-path/just-the-json-body` (with json body) returns just the json body:
+For example POST to `localhost:8321/api/iv1/random-path/just-the-json-body` (with json body) returns just the json body:
 
 ```json
 {
@@ -46,7 +46,7 @@ Request
 
 ```bash
 curl -X POST \
-  'http://localhost:8080/api/v1/random-path?paramOne=1¶mTwo=2' \
+  'http://localhost:8080/api/v1/random-path?paramOne=1&paramTwo=2' \
   -H 'Authorization: Basic blableblu' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
